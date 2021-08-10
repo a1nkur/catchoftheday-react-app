@@ -2,11 +2,21 @@ import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import StoreAccessPage from "./Pages/StoreAccessPage";
 
+import { Route, Switch } from "react-router-dom";
+import StorePickerPage from "./Pages/StorePickerPage";
+
 function App() {
   return (
     <AppContainer>
       <GlobalStyle />
-      <StoreAccessPage />
+      <Switch>
+        <Route path="/" exact>
+          <StorePickerPage />
+        </Route>
+        <Route path="/:id">
+          <StoreAccessPage />
+        </Route>
+      </Switch>
     </AppContainer>
   );
 }
