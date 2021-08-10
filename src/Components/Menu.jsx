@@ -1,7 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 import anchor from "../Styles/images/anchor.svg";
+import MenuItem from "./MenuItem";
 
 const Menu = () => {
+  const [menuArr, setMenuArr] = useState([]);
+
   return (
     <Container>
       <Title>
@@ -17,6 +21,10 @@ const Menu = () => {
         <h3>fresh seafood market</h3>
       </Title>
       <MenuList>
+        {/* {menuArr && menuArr.map(eachItem => <MenuItem eachItem={eachItem} />)} */}
+        <MenuItem />
+        <MenuItem />
+        <MenuItem />
 
       </MenuList>
     </Container>
@@ -98,7 +106,4 @@ const Title = styled.div`
   }
 `;
 
-
-const MenuList = styled.div`
-  
-`;
+const MenuList = styled.div``;
