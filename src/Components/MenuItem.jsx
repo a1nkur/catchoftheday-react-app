@@ -32,8 +32,10 @@ const Container = styled.div`
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 1rem 0;
+  height: 12rem;
 
   display: flex;
+  align-items: center;
   gap: 1rem;
 `;
 
@@ -48,6 +50,16 @@ const ItemDetail = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: "Haymaker", sans-serif;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    span {
+      font-weight: 700;
+      color: hsl(158, 72%, 49%);
+    }
   }
 
   .part__two {
@@ -58,8 +70,8 @@ const ItemDetail = styled.div`
   }
 
   button {
-    width: 40%;
-    padding: 0.4rem 0;
+    width: 60%;
+    padding: 0.4rem;
     border: 0.1rem solid #000;
     border-radius: 2px;
     text-transform: uppercase;
@@ -70,7 +82,6 @@ const ItemDetail = styled.div`
     &:hover {
       background-color: #000;
       color: #fff;
-      border: none;
     }
   }
 `;

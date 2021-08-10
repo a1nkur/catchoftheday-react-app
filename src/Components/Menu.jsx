@@ -25,7 +25,6 @@ const Menu = () => {
         <MenuItem />
         <MenuItem />
         <MenuItem />
-
       </MenuList>
     </Container>
   );
@@ -72,14 +71,14 @@ const Title = styled.div`
 
       span.text-of {
         color: hsl(158, 72%, 49%);
-
+        font-size: 1.3rem;
         position: relative;
         left: 10%;
       }
 
       span.text-the {
         color: hsl(158, 72%, 49%);
-
+        font-size: 1.3rem;
         position: relative;
         right: 10%;
       }

@@ -18,6 +18,8 @@ export default StoreAccessPage;
 /* ---------------------------- STYLED COMPONENTS --------------------------- */
 
 const Container = styled.div`
+  border-radius: 3px;
+
   height: 90vh;
   width: 95vw;
   background-color: #fff;
