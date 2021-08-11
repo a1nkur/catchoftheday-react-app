@@ -18,6 +18,14 @@ export const GlobalStyle = createGlobalStyle`
 
     }
 
+    ul li {
+        list-style-type: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
     /******************************************************************************/
 
     /* The emerging W3C standard that is currently Firefox-only */

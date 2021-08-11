@@ -6,6 +6,7 @@ const Inventory = () => {
     <Container>
       <h2>Inventory</h2>
       <AddItemForm />
+      
     </Container>
   );
 };

@@ -1,9 +1,12 @@
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Inventory from "../Components/Inventory";
 import Menu from "../Components/Menu";
 import Order from "../Components/Order";
 
 const StoreAccessPage = () => {
+  const history = useHistory();
+
   return (
     <Container>
       <Menu />

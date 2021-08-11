@@ -1,22 +1,49 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
+import { generateSlug } from "random-word-slugs";
+import { slugifyText } from "../Helpers/Helpers";
+
+import { Link, useHistory } from "react-router-dom";
+
 const StorePickerPage = () => {
-  // Event Handlers
+  const history = useHistory();
+
+  //* State
+  const [localdata, setLocalData] = useState("");
+
+  useEffect(() => {
+    const slug = generateSlug();
+    setLocalData(slug);
+  }, []);
+
+  //* Event Handlers
   const handleOnSubmit = e => {
     e.preventDefault();
+
+    history.push(`/store/${localdata}`);
+  };
+
+  const handleOnChange = e => {
+    let formattedText = slugifyText(e.target.value);
+    setLocalData(formattedText);
   };
 
   return (
     <Container>
       <Heading>
-        <h2>enter store name</h2>
-        <span>or</span>
-        <h2>choose generated name</h2>
+        <h2>
+          enter <span>store</span> name
+        </h2>
+        {/* <span>or</span>
+        <h2>choose generated name</h2> */}
       </Heading>
       <Body>
         <form onSubmit={handleOnSubmit}>
-          <input type="text" />
-          <button type="button">visit store</button>
+          <input type="text" value={localdata} onChange={handleOnChange} />
+          <Link to={`/store/${localdata}`}>
+            <button type="button">visit store</button>
+          </Link>
         </form>
       </Body>
     </Container>
@@ -32,7 +59,7 @@ const Container = styled.div`
   width: 30vw;
   background-color: #fff;
   border: 4px solid #000;
-  padding: 0.6rem;
+  padding: 2rem 1rem;
 `;
 
 const Heading = styled.div`
@@ -40,6 +67,10 @@ const Heading = styled.div`
   text-align: center;
   font-size: 1.2rem;
   padding-bottom: 2rem;
+
+  span {
+    color: hsl(158, 72%, 49%);
+  }
 `;
 
 const Body = styled.div`
@@ -53,12 +84,13 @@ const Body = styled.div`
       padding: 0.7rem 0.5rem;
       border: none;
       border-bottom: 1px solid #ccc;
+      font-size: 1.4rem;
+      text-align: center;
     }
 
     button {
       width: 100%;
       padding: 0.4rem;
-      /* border: 0.1rem solid #000; */
       border: none;
       border-radius: 2px;
       text-transform: uppercase;
