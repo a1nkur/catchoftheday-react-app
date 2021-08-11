@@ -2,17 +2,11 @@ import styled from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
 import StoreAccessPage from "./Pages/StoreAccessPage";
 
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import StorePickerPage from "./Pages/StorePickerPage";
-import { useEffect, useState } from "react";
 import ErrorPage404 from "./Components/ErrorPage404";
 
 function App() {
-  const [storeName, setStoreName] = useState("");
-
-  const history = useHistory();
-  console.log(history, "APP");
-
   return (
     <AppContainer>
       <GlobalStyle />
@@ -20,7 +14,7 @@ function App() {
         <Route path="/" exact>
           <StorePickerPage />
         </Route>
-        <Route path={`${history.location.pathname}`}>
+        <Route path="/store/:id">
           <StoreAccessPage />
         </Route>
         <Route>

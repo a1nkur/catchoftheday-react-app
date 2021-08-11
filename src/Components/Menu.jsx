@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import anchor from "../Styles/images/anchor.svg";
 import MenuItem from "./MenuItem";
 
 const Menu = () => {
-  const [menuArr, setMenuArr] = useState([]);
+  const sampleData = useSelector(state => state.sampleData); // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
 
   return (
     <Container>
@@ -22,9 +23,10 @@ const Menu = () => {
       </Title>
       <MenuList>
         {/* {menuArr && menuArr.map(eachItem => <MenuItem eachItem={eachItem} />)} */}
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
+        {sampleData &&
+          sampleData.map(eachItem => (
+            <MenuItem eachItem={eachItem} key={eachItem.id} />
+          ))}
       </MenuList>
     </Container>
   );

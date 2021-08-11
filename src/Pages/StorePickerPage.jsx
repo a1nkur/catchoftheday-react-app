@@ -35,15 +35,11 @@ const StorePickerPage = () => {
         <h2>
           enter <span>store</span> name
         </h2>
-        {/* <span>or</span>
-        <h2>choose generated name</h2> */}
       </Heading>
       <Body>
         <form onSubmit={handleOnSubmit}>
           <input type="text" value={localdata} onChange={handleOnChange} />
-          <Link to={`/store/${localdata}`}>
-            <button type="button">visit store</button>
-          </Link>
+          <button type="submit">visit store</button>
         </form>
       </Body>
     </Container>

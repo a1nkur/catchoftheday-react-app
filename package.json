@@ -15,6 +15,7 @@
     "redux": "^4.1.1",
     "slugify": "^1.6.0",
     "styled-components": "^5.3.0",
+    "uuid": "^3.4.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

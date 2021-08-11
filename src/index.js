@@ -7,10 +7,17 @@ import { BrowserRouter } from "react-router-dom";
 
 import { createStore } from "redux";
 
+import { allReducers } from "./Reducers";
+import { Provider } from "react-redux";
+
+const store = createStore(allReducers);
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

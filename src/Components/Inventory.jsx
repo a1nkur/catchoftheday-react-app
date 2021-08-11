@@ -1,12 +1,25 @@
 import styled from "styled-components";
 import AddItemForm from "./AddItemForm";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Inventory = () => {
+  const dispatch = useDispatch();
+  const sampleData = useSelector(state => state.sampleData);
+
+
+  //* Event Handlers
+  const handleClick = () => {
+    dispatch({ type: "LOAD_SAMPLE_DATA" });
+  };
+
   return (
     <Container>
       <h2>Inventory</h2>
       <AddItemForm />
-      
+      <button className="load__sameple-data" onClick={handleClick}>
+        load sample data
+      </button>
     </Container>
   );
 };
@@ -26,5 +39,24 @@ const Container = styled.div`
     border-bottom: 1px solid #ccc;
     padding-bottom: 1rem;
     margin-bottom: 1rem;
+  }
+
+  button.load__sameple-data {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 0.4rem 0;
+    border: 0.1rem solid #000;
+    /* border: none; */
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      outline: none;
+    }
   }
 `;

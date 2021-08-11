@@ -1,22 +1,19 @@
 import styled from "styled-components";
 import zen from "../Assets/images/zen.jpg";
 
-const MenuItem = () => {
+const MenuItem = ({ eachItem }) => {
   return (
     <Container>
       <ImageContainer>
-        <img src={zen} alt="menu-item" />
+        <img src={eachItem.image} alt="menu-item" />
       </ImageContainer>
       <ItemDetail>
         <div className="part__one">
-          <h3>Atlantic Salmon</h3>
-          <span>$14.53</span>
+          <h3>{eachItem.name}</h3>
+          <span>$ {eachItem.price}</span>
         </div>
         <div className="part__two">
-          <p>
-            This flaky, oily salmon is truly the king of the sea. Bake it, grill
-            it, broil it...as good as it gets!
-          </p>
+          <p>{eachItem.desc}</p>
         </div>
         <button>add to order</button>
       </ItemDetail>

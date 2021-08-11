@@ -4,5 +4,8 @@
       "path": "."
     }
   ],
-  "settings": {}
+  "settings": {
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace"
+  }
 }
