@@ -11,7 +11,7 @@ const AddItemForm = () => {
     id: "",
     name: "",
     price: "",
-    status: "",
+    status: "Fresh",
     desc: "",
     image: "",
   });
@@ -30,13 +30,17 @@ const AddItemForm = () => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    dispatch({ type: "ADD_ITEM_TO_MENU", payload: localFormData });
+
+    dispatch({
+      type: "ADD_ITEM_TO_MENU",
+      payload: localFormData,
+    });
 
     setLocalFormData({
       id: "",
       name: "",
       price: "",
-      status: "",
+      status: "Fresh",
       desc: "",
       image: "",
     });
@@ -57,6 +61,7 @@ const AddItemForm = () => {
           />
           <input
             type="number"
+            step={0.01}
             name="price"
             id="price"
             placeholder="Fish Price"
@@ -71,7 +76,9 @@ const AddItemForm = () => {
             value={localFormData.status}
             required
           >
-            <option value="Fresh">Fresh</option>
+            <option value="Fresh" selected>
+              Fresh
+            </option>
             <option value="SoldOut">Sold Out</option>
           </select>
         </FormGroup>

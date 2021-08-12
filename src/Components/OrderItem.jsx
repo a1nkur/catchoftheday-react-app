@@ -5,7 +5,7 @@ const OrderItem = ({ eachOrder }) => {
   return (
     <Container>
       <h4>{eachOrder.name}</h4>
-      <p>$ {eachOrder.price}</p>
+      <p className="order__price">$ {eachOrder.price}</p>
     </Container>
   );
 };
@@ -22,4 +22,10 @@ const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: space-between;
+
+  p.order__price {
+    font-weight: 300;
+    color: hsl(158, 72%, 49%);
+    font-family: "Haymaker", sans-serif;
+  }
 `;
