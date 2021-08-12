@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
 
@@ -18,7 +18,6 @@ const AddItemForm = () => {
 
   // Event Hanlders
   const handleOnChange = e => {
-    let img = e.target.files;
     setLocalFormData(prevState => {
       return {
         ...prevState,

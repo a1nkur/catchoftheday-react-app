@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { generateSlug } from "random-word-slugs";
 import { slugifyText } from "../Helpers/Helpers";
 
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const StorePickerPage = () => {
   const history = useHistory();

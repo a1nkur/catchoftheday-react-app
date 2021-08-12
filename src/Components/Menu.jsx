@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import anchor from "../Styles/images/anchor.svg";
@@ -7,7 +6,6 @@ import MenuItem from "./MenuItem";
 const Menu = () => {
   const sampleData = useSelector(state => state.sampleData); // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
   const menuData = useSelector(state => state.menuData); // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-  console.log(menuData, "menudata");
   return (
     <Container>
       <Title>

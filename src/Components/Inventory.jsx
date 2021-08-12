@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import AddItemForm from "./AddItemForm";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
 const Inventory = () => {
   const dispatch = useDispatch();
-  const sampleData = useSelector(state => state.sampleData);
-
 
   //* Event Handlers
   const handleClick = () => {
