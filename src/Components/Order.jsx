@@ -1,19 +1,17 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 import OrderItem from "./OrderItem";
 
 const Order = () => {
-  const [orderList, setOrderList] = useState([]);
+  const orderData = useSelector(state => state.orderData); // [{…}]
 
   return (
     <Container>
       <h2>Your Order</h2>
-      {/* {orderList && orderList.map(eachItem => <OrderItem eachItem={eachItem} />)} */}
-      <OrderItem />
-      <OrderItem />
-      <OrderItem />
-      <OrderItem />
+      {orderData &&
+        orderData.map(eachOrder => <OrderItem eachOrder={eachOrder} />)}
 
       <OrderTotal>
         <h5>Total</h5>

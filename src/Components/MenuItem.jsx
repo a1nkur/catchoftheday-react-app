@@ -1,7 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import styled from "styled-components";
-import zen from "../Assets/images/zen.jpg";
 
 const MenuItem = ({ eachItem }) => {
+  const dispatch = useDispatch();
+
+  //* Event Handlers
+  const handleClick = object => {
+    dispatch({ type: "ADD_TO_ORDER", payload: object });
+  };
+
   return (
     <Container>
       <ImageContainer>
@@ -15,7 +23,7 @@ const MenuItem = ({ eachItem }) => {
         <div className="part__two">
           <p>{eachItem.desc}</p>
         </div>
-        <button>add to order</button>
+        <button onClick={() => handleClick(eachItem)}>add to order</button>
       </ItemDetail>
     </Container>
   );

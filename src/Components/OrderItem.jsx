@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const OrderItem = props => {
+const OrderItem = ({ eachOrder }) => {
+  console.log(eachOrder, "orderitem");
   return (
     <Container>
-      <h4>Item-1</h4>
-      <p>$17.24</p>
+      <h4>{eachOrder.name}</h4>
+      <p>$ {eachOrder.price}</p>
     </Container>
   );
 };

@@ -31,8 +31,6 @@ const AddItemForm = () => {
 
   const handleOnSubmit = e => {
     e.preventDefault();
-    console.log("submitting");
-
     dispatch({ type: "ADD_ITEM_TO_MENU", payload: localFormData });
 
     setLocalFormData({
@@ -56,20 +54,23 @@ const AddItemForm = () => {
             placeholder="Fish Name"
             onChange={handleOnChange}
             value={localFormData.name}
+            required
           />
           <input
-            type="text"
+            type="number"
             name="price"
             id="price"
             placeholder="Fish Price"
             onChange={handleOnChange}
             value={localFormData.price}
+            required
           />
           <select
             name="status"
             id="status"
             onChange={handleOnChange}
             value={localFormData.status}
+            required
           >
             <option value="Fresh">Fresh</option>
             <option value="SoldOut">Sold Out</option>
@@ -82,6 +83,7 @@ const AddItemForm = () => {
             placeholder="Fish Description"
             onChange={handleOnChange}
             value={localFormData.desc}
+            required
           ></textarea>
         </div>
         <div className="fish-image__desc">
