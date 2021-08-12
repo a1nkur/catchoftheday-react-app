@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Open Sans', sans-serif;  
     }
 
-    @font-face {
+    /* @font-face {
         font-family: "haymakerregular";
         src: url("./fonts/haymaker-webfont.eot");
         src: url("./fonts/haymaker-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/haymaker-webfont.woff") format("woff"), url("./fonts/haymaker-webfont.ttf") format("truetype"), url("./fonts/haymaker-webfont.svg#haymakerregular") format("svg");
@@ -30,7 +30,19 @@ export const GlobalStyle = createGlobalStyle`
         src: url("./fonts/blanch_caps_inline-webfont.eot?#iefix") format('embedded-opentype'), url("./fonts/blanch_caps_inline-webfont.woff") format('woff'), url("./fonts/blanch_caps_inline-webfont.ttf") format('truetype'), url("./fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline") format('svg');
         font-weight: normal;
         font-style: normal;
+    } */
+
+    /* @font-face {
+        font-family: "haymakerregular";
+        src: local("GoldmanBold"),
+        url("./Styles/fonts/haymaker-webfont.ttf") format("truetype");
+        font-weight: normal;
     }
+
+    .font-face--haymaker {
+        font-family: 'Haymaker';
+    } */
+
 
     ul li {
         list-style-type: none;
