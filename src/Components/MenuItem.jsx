@@ -43,11 +43,16 @@ const ImageContainer = styled.div`
 `;
 
 const ItemDetail = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   .part__one {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: "Haymaker", sans-serif;
+    width: 100%;
 
     h3 {
       font-size: 1.2rem;

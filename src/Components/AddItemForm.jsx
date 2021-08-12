@@ -1,73 +1,100 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 
 const AddItemForm = () => {
+  const dispatch = useDispatch();
+
   // State
   const [localFormData, setLocalFormData] = useState({
-    fishName: "",
-    fishPrice: "",
-    fishStatus: "Fresh",
-    fishDesc: "",
-    fishImageDesc: "",
+    id: "",
+    name: "",
+    price: "",
+    status: "",
+    desc: "",
+    image: "",
   });
 
   // Event Hanlders
   const handleOnChange = e => {
+    let img = e.target.files;
     setLocalFormData(prevState => {
       return {
         ...prevState,
+        id: uuidv4(),
         [e.target.id]: e.target.value,
+        image: "/images/hali.jpg", //! TEMPORARY WORKAROUND, NEEDS TO BE FIXED
       };
     });
   };
 
-  const handleOnClick = e => {
-    return;
+  const handleOnSubmit = e => {
+    e.preventDefault();
+    console.log("submitting");
+
+    dispatch({ type: "ADD_ITEM_TO_MENU", payload: localFormData });
+
+    setLocalFormData({
+      id: "",
+      name: "",
+      price: "",
+      status: "",
+      desc: "",
+      image: "",
+    });
   };
 
   return (
     <Container>
-      <Form>
+      <Form onSubmit={handleOnSubmit}>
         <FormGroup>
           <input
             type="text"
-            name="fishName"
-            id="fishName"
+            name="name"
+            id="name"
             placeholder="Fish Name"
             onChange={handleOnChange}
+            value={localFormData.name}
           />
           <input
             type="text"
-            name="fishPrice"
-            id="fishPrice"
+            name="price"
+            id="price"
             placeholder="Fish Price"
             onChange={handleOnChange}
+            value={localFormData.price}
           />
-          <select name="status" id="fishStatus" onChange={handleOnChange}>
+          <select
+            name="status"
+            id="status"
+            onChange={handleOnChange}
+            value={localFormData.status}
+          >
             <option value="Fresh">Fresh</option>
-            <option value="Sold Out">Sold Out</option>
+            <option value="SoldOut">Sold Out</option>
           </select>
         </FormGroup>
         <div className="form__textarea">
           <textarea
-            name="fishDesc"
-            id="fishDesc"
+            name="desc"
+            id="desc"
             placeholder="Fish Description"
             onChange={handleOnChange}
+            value={localFormData.desc}
           ></textarea>
         </div>
         <div className="fish-image__desc">
           <input
             type="text"
-            name="fishImageDesc"
-            id="fishImageDesc"
+            name="image"
+            id="image"
             placeholder="Fish Image"
             onChange={handleOnChange}
+            value={localFormData.image}
           />
         </div>
-        <button type="submit" onClick={handleOnClick}>
-          + add item
-        </button>
+        <button type="submit">+ add item</button>
       </Form>
     </Container>
   );
@@ -81,7 +108,7 @@ const Container = styled.div`
   border: 2px solid #000;
 `;
 
-const Form = styled.div`
+const Form = styled.form`
   input:focus,
   select:focus,
   textarea:focus {

@@ -6,7 +6,8 @@ import MenuItem from "./MenuItem";
 
 const Menu = () => {
   const sampleData = useSelector(state => state.sampleData); // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
-
+  const menuData = useSelector(state => state.menuData); // [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+  console.log(menuData, "menudata");
   return (
     <Container>
       <Title>
@@ -22,7 +23,7 @@ const Menu = () => {
         <h3>fresh seafood market</h3>
       </Title>
       <MenuList>
-        {/* {menuArr && menuArr.map(eachItem => <MenuItem eachItem={eachItem} />)} */}
+        {menuData && menuData.map(eachItem => <MenuItem eachItem={eachItem} />)}
         {sampleData &&
           sampleData.map(eachItem => (
             <MenuItem eachItem={eachItem} key={eachItem.id} />
